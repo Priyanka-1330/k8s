@@ -23,7 +23,7 @@ spec:
   type: LoadBalancer
   selector: 
     app: lbapp
-ports:
+  ports:
   - name: lbsvc-port
     protocol: TCP
     port: 80
