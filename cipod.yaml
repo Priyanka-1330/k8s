@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: ciservice
+  labels:
+    app: app
+spec:
+  type: ClusterIP
+  selector: 
+    app: app
+  ports:
+    - name: nginxsvc-port
+      protocol: TCP
+      port: 80
+      targetPort: 80
