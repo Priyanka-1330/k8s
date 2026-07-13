@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: recreate-deployment
+  labels: 
+    app: my-app
+spec:
+  replicas: 5
+  selector:
+    matchLabels:
+      app: myapp
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      name: my-temp
+      labels: 
+        app: myapp
+    spec: 
+      containers:
+         - name: recreate
+           image: nginx
+           ports:
+             - name: containerport
+               containerPort: 80
