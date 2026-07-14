@@ -10,7 +10,7 @@ spec:
     matchLabels:
       app: myapp
   template: 
-    meatadata:
+    metadata:
       name: mysql-temp
       labels:
         app: myapp
@@ -30,3 +30,20 @@ spec:
               value: studentapps
             - name: MYSQL_ROOT_PASSWORD
               value: root
+...
+---
+apiVersion: v1
+kind: Service
+metadata: 
+  name: mysql-svc
+  labels: 
+    app: myapp
+spec:
+  clusterIP: None
+  selector:
+    app: myapp
+  ports:
+    - name: mysql-svc-port
+      protocol: TCP
+      port: 3306
+      targetPort:3306
