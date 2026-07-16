@@ -4,6 +4,7 @@ metadata:
   name: my-svc
   labels:
     app : myapp
+  namespace: hpa
 spec:
   type: NodePort
   selector:
